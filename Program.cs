@@ -23,7 +23,7 @@ namespace DesafioCodenation
         {
             try
             {
-                HttpResponseMessage response = await client.GetAsync("https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=62a83f312b361a045987a50d75a350c7adce06a9");
+                HttpResponseMessage response = await client.GetAsync("https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=SEUTOKEN");
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -90,7 +90,7 @@ namespace DesafioCodenation
                 var content = new MultipartFormDataContent();
                 content.Add(new StreamContent(new MemoryStream(bytes)), "answer", arquivo);
 
-                HttpResponseMessage submitResponse = await client.PostAsync(@"https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=62a83f312b361a045987a50d75a350c7adce06a9", content);
+                HttpResponseMessage submitResponse = await client.PostAsync(@"https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=SEUTOKEN", content);
 
                 string mensagem = await submitResponse.Content.ReadAsStringAsync();
 
